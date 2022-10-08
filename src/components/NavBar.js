@@ -1,7 +1,7 @@
 const NavBar = () => {
   return (
     <nav className="list-books-title">
-      <h1>MyReads</h1>
+      <h1>MyRead</h1>
     </nav>
   );
 };

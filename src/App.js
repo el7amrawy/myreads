@@ -1,26 +1,19 @@
 import "./App.css";
-import { useState } from "react";
+// import { useState } from "react";
 import NavBar from "./components/NavBar";
 import SearchBooks from "./pages/SearchBooks";
 import Main from "./pages/Main";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-  const [showSearchPage, setShowSearchpage] = useState(false);
-
   return (
-    <div className="app">
-      {showSearchPage ? (
-        <SearchBooks />
-      ) : (
-        <div className="list-books">
-          <NavBar />
-          <Main />
-          <div className="open-search">
-            <a onClick={() => setShowSearchpage(!showSearchPage)}>Add a book</a>
-          </div>
-        </div>
-      )}
-    </div>
+    <BrowserRouter>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/search" element={<SearchBooks />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -6,11 +6,9 @@ const Main = () => {
   return (
     <main>
       <div className="list-books-content">
-        <div>
-          <CurrentlyReading />
-          <WantToRead />
-          <Read />
-        </div>
+        <CurrentlyReading />
+        <WantToRead />
+        <Read />
       </div>
     </main>
   );

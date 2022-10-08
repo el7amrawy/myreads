@@ -5,9 +5,6 @@ body,
 }
 body {
   line-height: 1.5;
-}
-body,
-.app {
   background: white;
 }
 

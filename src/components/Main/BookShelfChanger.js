@@ -11,7 +11,7 @@ const BookShelfChanger = ({ book, books }) => {
         const res = await update(book, shelf);
         console.log(res);
         const newBooks = await getAll();
-        books.setBooks({ lmaa: 0 });
+        books.setBooks(newBooks);
         localStorage.setItem("books", JSON.stringify(newBooks));
         // console.log(books.books);
       })();

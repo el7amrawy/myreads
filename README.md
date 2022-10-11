@@ -14,6 +14,12 @@ npm i
 npm run build
 ```
 
+## Start the project
+
+```
+npm start
+```
+
 ## Built with
 
 - React

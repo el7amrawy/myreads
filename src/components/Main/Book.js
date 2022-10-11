@@ -10,14 +10,14 @@ const Book = ({ book, books }) => {
             style={{
               width: 128,
               height: 193,
-              backgroundImage: `url("${book.imageLinks.thumbnail}")`,
+              backgroundImage: `url("${book.imageLinks?.thumbnail}")`,
             }}
           ></div>
           <BookShelfChanger book={book} books={books} />
         </div>
         <div className="book-title">{book.title}</div>
         <div className="book-authors">
-          {book.authors.map((auth) => (
+          {book.authors?.map((auth) => (
             <div key={auth}>{auth}</div>
           ))}
         </div>

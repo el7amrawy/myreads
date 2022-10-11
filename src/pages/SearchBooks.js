@@ -9,7 +9,9 @@ const SearchBooks = ({ books }) => {
 
   useEffect(() => {
     if (searchString.length)
-      search(searchString, 5).then((res) => setSearch_results(res));
+      search(searchString, 10).then((res) =>
+        res.length ? setSearch_results(res) : setSearch_results([])
+      );
   }, [searchString]);
 
   return (
@@ -29,9 +31,11 @@ const SearchBooks = ({ books }) => {
       </div>
       <div className="search-books-results">
         <ol className="books-grid">
-          {search_results.map((book) => (
-            <Book key={book.id} book={book} books={books} />
-          ))}
+          {searchString.length && search_results.length
+            ? search_results.map((book) => (
+                <Book key={book.id} book={book} books={books} />
+              ))
+            : []}
         </ol>
       </div>
     </div>

@@ -6,7 +6,7 @@ const BookShelfChanger = ({ book, books }) => {
 
   useEffect(() => {
     if (shelf.length) {
-      console.log(shelf);
+      // console.log(shelf);
       (async () => {
         const res = await update(book, shelf);
         console.log(res);
@@ -28,9 +28,9 @@ const BookShelfChanger = ({ book, books }) => {
           Move to...
         </option>
         <option value="none">None</option>
+        <option value="currentlyReading">Currently Reading</option>
         <option value="wantToRead">Want to Read</option>
         <option value="read">Read</option>
-        <option value="currentlyReading">Currently Reading</option>
       </select>
     </div>
   );

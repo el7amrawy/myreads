@@ -26,6 +26,7 @@ function App() {
           path="/search"
           element={<SearchBooks books={{ books, setBooks }} />}
         />
+        <Route path="/*" element={<div>404 not found</div>} />
       </Routes>
     </BrowserRouter>
   );

@@ -5,17 +5,28 @@ const BookShelfChanger = ({ book, books }) => {
   const [shelf, setShelf] = useState("");
 
   useEffect(() => {
-    if (shelf.length) {
-      // console.log(shelf);
+    if (shelf?.length) {
       (async () => {
-        const res = await update(book, shelf);
-        console.log(res);
+        await update(book, shelf);
         const newBooks = await getAll();
         books.setBooks(newBooks);
         localStorage.setItem("books", JSON.stringify(newBooks));
       })();
     }
   }, [shelf]);
+
+  useEffect(() => {
+    let shelf = "";
+    books.books.find((bo) => {
+      if (bo.id === book.id) {
+        shelf = bo.shelf;
+        return true;
+      }
+      return false;
+    })
+      ? setShelf(shelf)
+      : setShelf("none");
+  }, []);
 
   return (
     <div className="book-shelf-changer">
